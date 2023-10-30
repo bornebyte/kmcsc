@@ -23,3 +23,17 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+
+ 
+
+// CREATE TABLE admin (
+//   id INT NOT NULL,
+//   username VARCHAR(255) NOT NULL UNIQUE,
+//   password VARCHAR(255) NOT NULL,
+//   email VARCHAR(255) NOT NULL UNIQUE,
+//   name VARCHAR(255) NOT NULL,
+//   created VARCHAR(255),
+//   is_deleted BOOLEAN NOT NULL DEFAULT FALSE,
+//   current_admin BOOLEAN NOT NULL DEFAULT FALSE,
+//   PRIMARY KEY (id)
+// );
