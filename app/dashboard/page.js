@@ -1,13 +1,11 @@
-import React from 'react'
-import CreatePost from './Post'
+import AddMember from './addmember/page'
+import CreatePost from './addpost/page'
 
 const Dashboard = () => {
     return (
-        <div className="bg-gray-900">
-            <div className='container max-w-[80vw] mx-auto min-h-screen bg-gray-900'>
-                <h1 className='text-center text-5xl'>Dashboard</h1>
-                <CreatePost />
-            </div>
+        <div>
+            <CreatePost />
+            <AddMember />
         </div>
     )
 }
