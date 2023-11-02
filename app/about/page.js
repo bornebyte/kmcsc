@@ -1,4 +1,5 @@
 import React from 'react'
+import Ecaheadsir from '../components/Amitghartisir'
 
 const Line = () => {
   return (
@@ -128,6 +129,7 @@ const About = () => {
             <Line />
           </div>
         </div>
+        <Ecaheadsir />
       </div>
     </div>
   )
