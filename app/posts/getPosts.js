@@ -2,6 +2,7 @@
 import connect from "@/app/lib/mongodb";
 import AddPost from "@/app/models/AddPost";
 
+
 const getPosts = async () => {
     await connect()
     let data = await AddPost.find()
@@ -9,3 +10,4 @@ const getPosts = async () => {
 }
 
 export default getPosts
+// export const revalidate = 0; // this is the new line added
