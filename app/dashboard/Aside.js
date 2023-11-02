@@ -2,6 +2,7 @@ import Link from "next/link"
 import {AiFillHome,AiOutlineAppstoreAdd} from "react-icons/ai"
 import {BsPersonFillAdd} from "react-icons/bs"
 import {IoMdSettings,IoMdNotifications} from "react-icons/io"
+import {ImQuotesLeft} from "react-icons/im"
 
 const Aside = () => {
     return (
@@ -12,6 +13,7 @@ const Aside = () => {
                 <Link href={"/dashboard/addmember"} className='cursor-pointer w-full h-12 bg-gray-800 text-white font-bold rounded-lg px-2 py-1 text-center flex justify-center items-center' ><div className="flex items-center justify-center gap-6"><div><BsPersonFillAdd className="text-2xl" /></div><div>Add Members</div></div></Link>
                 <Link href={"/dashboard/settings"} className='cursor-pointer w-full h-12 bg-gray-800 text-white font-bold rounded-lg px-2 py-1 text-center flex justify-center items-center' ><div className="flex items-center justify-center gap-6"><div><IoMdSettings className="text-2xl" /></div><div>Settings</div></div></Link>
                 <Link href={"/dashboard/notification"} className='cursor-pointer w-full h-12 bg-gray-800 text-white font-bold rounded-lg px-2 py-1 text-center flex justify-center items-center' ><div className="flex items-center justify-center gap-6"><div><IoMdNotifications className="text-2xl" /></div><div>Notifications</div></div></Link>
+                <Link href={"/dashboard/quotes"} className='cursor-pointer w-full h-12 bg-gray-800 text-white font-bold rounded-lg px-2 py-1 text-center flex justify-center items-center' ><div className="flex items-center justify-center gap-6"><div><ImQuotesLeft className="text-2xl" /></div><div>Quotes</div></div></Link>
                 <div className='cursor-pointer w-full h-12 bg-gray-800 text-white font-bold rounded-lg px-2 py-1 text-center flex justify-center items-center' >Toggle Modal</div>
             </div>
         </aside>
