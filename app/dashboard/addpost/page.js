@@ -1,6 +1,16 @@
-export default  function CreatePost() {
+'use client'
+import saveData from "./saveData"
+
+export default function CreatePost() {
+    const handleFormSubmit = async (e) => {
+        e.preventDefault()
+        const title = e.target[0].value
+        const content = e.target[1].value
+        const author = e.target[2].value
+        let res = saveData(title, content, author)
+    }
     return (
-        <form className="text-gray-400 bg-gray-900 body-font my-12">
+        <form className="text-gray-400 bg-gray-900 body-font my-12" onSubmit={handleFormSubmit}>
             <div className="py-6 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
                 <h2 className="text-white text-lg font-medium title-font mb-5 text-center">New Post</h2>
                 <div className="relative mb-4">
