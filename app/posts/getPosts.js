@@ -5,7 +5,7 @@ import AddPost from "@/app/models/AddPost";
 
 const getPosts = async () => {
     await connect()
-    let data = await AddPost.find()
+    let data = await AddPost.find().sort({_id:-1}).limit(10)
     return data
 }
 

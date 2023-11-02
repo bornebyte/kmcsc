@@ -1,8 +1,10 @@
 import React from 'react'
 import getquote from './fetchquotes'
 import Addquotescomponent from './addquotes'
+import { revalidatePath } from 'next/cache'
 
 const QuotesComponent = async () => {
+  revalidatePath('/dashboard/quotes', 'page')
   let quotes = await getquote()
   return (
     <div className='min-h-screen bg-gray-900 text-gray-400'>
