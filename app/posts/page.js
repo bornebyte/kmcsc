@@ -1,6 +1,5 @@
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { BiBookmark, BiComment } from "react-icons/bi"
-import { revalidatePath } from 'next/cache'
 
 const Post = async () => {
   // const { signal } = new AbortController()
