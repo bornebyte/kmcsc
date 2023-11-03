@@ -4,8 +4,14 @@ import { BiBookmark, BiComment } from "react-icons/bi"
 const Post = async () => {
   // const { signal } = new AbortController()
   // fetch(url, { signal })
-  const res = await fetch(`${process.env.HOST_URL}/api/posts?limit=6`, { cache: 'no-store' });
-  const posts = await res.json()
+  let res = {}
+  let posts = {}
+  try {
+    res = await fetch(`${process.env.HOST_URL}/api/posts?limit=6`, { cache: 'no-store' });
+    posts = await res.json()
+  } catch (error) {
+    console.error(error)
+  }
   return (
     <div className="min-h-screen bg-gray-900 text-gray-400">
       <div className="w-[60vw] mx-auto py-8">
