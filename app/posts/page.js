@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache'
 const Post = async () => {
   // const { signal } = new AbortController()
   // fetch(url, { signal })
-  const res = await fetch('http://localhost:3000/api/posts?limit=2', { cache: 'no-store' });
+  const res = await fetch(`${process.env.HOST_URL}/api/posts?limit=6`, { cache: 'no-store' });
   const posts = await res.json()
   return (
     <div className="min-h-screen bg-gray-900 text-gray-400">
