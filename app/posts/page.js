@@ -1,16 +1,12 @@
-import getPosts from "./getPosts"
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { BiBookmark, BiComment } from "react-icons/bi"
 import { revalidatePath } from 'next/cache'
 
 const Post = async () => {
-  let posts = []
-  try {
-    revalidatePath('/posts');
-    posts = await getPosts()
-  } catch (error) {
-    revalidatePath('/posts');
-  }
+  // const { signal } = new AbortController()
+  // fetch(url, { signal })
+  const res = await fetch('http://localhost:3000/api/posts?limit=2', { cache: 'no-store' });
+  const posts = await res.json()
   return (
     <div className="min-h-screen bg-gray-900 text-gray-400">
       <div className="w-[60vw] mx-auto py-8">
