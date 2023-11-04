@@ -3,18 +3,31 @@ import mongoose from 'mongoose';
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
     },
     email: {
         type: String,
-        required: true,
-        unique: true,
+    },
+    phone: {
+        type: Number,
     },
     password: {
         type: String,
-        required: true,
-        minlength: 6,
+        default: "kmcsc"
     },
-});
+    clubname: {
+        type: String,
+    },
+    role: {
+        type: String,
+    },
+    del: {
+        type: Boolean,
+        default: false
+    },
+    retired: {
+        type: Boolean,
+        default: false
+    },
+}, { timestamps: true });
 
 export default mongoose.models.User || mongoose.model("User", userSchema);

@@ -1,23 +1,23 @@
 const { NextResponse } = require("next/server");
 import connect from "@/app/lib/mongodb";
-import Post from "@/app/models/AddPost";
 import Notifications from "@/app/models/Notifications";
 
 export async function GET(request) {
-    const { searchParams } = new URL(request.url)
     let limitval = 10
     try {
+        const { searchParams } = new URL(request.url)
         limitval = searchParams.get('limit')
     } catch (error) {
         limitval = 10
     }
     await connect()
-    let data = await Post.find().sort({ _id: -1 }).limit(limitval)
+    let data = await Notifications.find().sort({ _id: -1 }).limit(20)
     return NextResponse.json(data)
 }
 
-// export async function POST(req) {
-//     const user = await req.json()
-//     console.log(user)
-//     return NextResponse.json("ok")
-// }
+export async function POST(req) {
+    const newquote = await req.json()
+    await connect()
+    let res = await Notifications.create({ msg: "api/notifications" })
+    return NextResponse.json({ uid: res._id.toString() })
+}

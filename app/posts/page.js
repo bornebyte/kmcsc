@@ -2,8 +2,6 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { BiBookmark, BiComment } from "react-icons/bi"
 
 const Post = async () => {
-  // const { signal } = new AbortController()
-  // fetch(url, { signal })
   let res = {}
   let posts = []
   try {
@@ -18,7 +16,7 @@ const Post = async () => {
         {/* Heading */}
         <h1 className="text-4xl text-white text-center font-bold my-8">Posts</h1>
         {/* Posts Div */}
-        {
+        {posts &&
           posts.map((post) => {
             return (
               <div key={post._id.toString()} className="w-full px-6 py-4 border-blue-400 rounded-lg bg-gray-800 bg-opacity-40 my-12">

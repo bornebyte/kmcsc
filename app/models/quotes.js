@@ -4,9 +4,6 @@ const quotesSchema = new mongoose.Schema({
     quote: {
         type: String,
         required: true
-    },
-    tags: {
-        type: String
     }
 }, { timestamps: true });
 

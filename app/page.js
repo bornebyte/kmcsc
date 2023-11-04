@@ -1,5 +1,5 @@
 import About from "./about/page";
-// import Post from "./posts/page";
+import Post from "./posts/page";
 import Image from "next/image";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
         </div>
       </div>
       <About />
-      {/* <Post /> */}
+      <Post />
     </div>
   )
 }
