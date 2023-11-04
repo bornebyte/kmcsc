@@ -11,12 +11,12 @@ const Notification = async () => {
     console.error(error)
   }
   return (
-    <div className='container'>
-      <div className='text-center text-white text-3xl font-bold my-4'>Notifications</div>
+    <div className='bg-gray-900 text-gray-400 min-h-screen'>
+      <div className='text-center text-white text-3xl font-bold py-4'>Notifications</div>
       {
         notificationsdata.map((i) => {
           return (
-            <div className='card bg-gray-800 p-4 flex justify-between items-center rounded-lg my-6 px-4' key={i._id.toString()}>
+            <div className='card bg-gray-800 p-4 flex justify-between items-center rounded-lg mt-6 px-4 w-[90vw] mx-auto' key={i._id.toString()}>
               <div>
               <div className="date my-2 mb-2 text-base">{i.createdAt.toLocaleString()}</div>
               <div className="text-xl">{i.msg}</div>

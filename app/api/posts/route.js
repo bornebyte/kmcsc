@@ -16,8 +16,16 @@ export async function GET(request) {
     return NextResponse.json(data)
 }
 
-// export async function POST(req) {
-//     const user = await req.json()
-//     console.log(user)
-//     return NextResponse.json("ok")
-// }
+export async function POST(req) {
+    await connect()
+    const userdata = await req.json()
+    let res = await Post.create({
+        title: userdata.title,
+        content: userdata.content,
+        author: userdata.author,
+    })
+    await Notifications.create({
+        msg: `New post added with id ${res._id.toString()}`
+    })
+    return NextResponse.json({ uid: res._id.toString() })
+}

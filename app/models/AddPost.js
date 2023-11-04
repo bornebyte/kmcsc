@@ -1,10 +1,6 @@
 import mongoose from 'mongoose';
 
 const addNewPostSchema = new mongoose.Schema({
-    uid: {
-        type: String,
-        required: true,
-    },
     title: {
         type: String,
     },
