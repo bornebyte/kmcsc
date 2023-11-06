@@ -22,7 +22,7 @@ export default function CreatePost() {
     return (
         <div className="text-gray-400 bg-gray-900 w-full">
             <Toaster />
-            <form className="w-[90vw] mx-auto" action={handleForm}>
+            <form className="w-[90vw] lg:w-[40vw] mx-auto" action={handleForm}>
                 <div className="py-6 bg-gray-800 bg-opacity-50 rounded-lg px-8 flex-col mx-auto">
                     <h2 className="text-white text-lg font-medium title-font mb-5 text-center">New Post</h2>
                     <div className="relative mb-4">

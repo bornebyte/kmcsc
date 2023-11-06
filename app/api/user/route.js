@@ -5,16 +5,11 @@ import Notifications from "@/app/models/Notifications";
 const CryptoJS = require("crypto-js");
 
 export async function GET(request) {
-    let limitval = 10
-    try {
-        const { searchParams } = new URL(request.url)
-        limitval = searchParams.get('limit')
-    } catch (error) {
-        limitval = 10
-    }
-    await connect()
-    let data = await MemberModel.find().sort({ _id: -1 }).limit(limitval)
-    return NextResponse.json(data)
+    console.log(request)
+    // const resdata = await req.json()
+    // await connect()
+    // let data = await MemberModel.find({_id:resdata.id})
+    return NextResponse.json("")
 }
 
 export async function POST(req) {

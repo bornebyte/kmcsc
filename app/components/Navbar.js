@@ -1,7 +1,15 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const Navbar = () => {
+    const [userlogin, setUserlogin] = useState(false)
+    useEffect(() => {
+        if (localStorage.getItem("useremail") && localStorage.getItem("userpassword")) {
+            setUserlogin(true)
+        }
+    }, [userlogin])
     return (
         <header className="text-gray-400 bg-gray-900 body-font">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -14,7 +22,8 @@ const Navbar = () => {
                     <Link href={"/"} className="mr-5 hover:text-white">Home</Link>
                     <Link href={"/posts"} className="mr-5 hover:text-white">Posts</Link>
                     <Link href={"/about"} className="mr-5 hover:text-white">About</Link>
-                    <Link href={"/dashboard/home"} className="mr-5 hover:text-white">Dashboard</Link>
+                    {userlogin ? <Link href={"/dashboard/home"} className="mr-5 hover:text-white">Dashboard</Link> : <Link href={"/auth/login"} className="mr-5 hover:text-white">Login</Link>}
+                    {userlogin && <button className="mr-5 hover:text-white" onClick={() => { localStorage.removeItem("useremail"); localStorage.removeItem("userpassword");window.location.reload() }}>Logout</button>}
                 </nav>
             </div>
         </header>

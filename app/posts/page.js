@@ -19,10 +19,10 @@ const Post = async () => {
         {posts &&
           posts.map((post) => {
             return (
-              <div key={post._id.toString()} className="mx-auto w-[90vw] px-6 py-4 border-blue-400 rounded-lg bg-gray-800 bg-opacity-40 my-12">
+              <div key={post._id.toString()} className="mx-auto w-[90vw] lg:w-[60vw] px-6 py-4 border-blue-400 rounded-lg bg-gray-800 bg-opacity-40 my-12">
                 {/* Informations about posts */}
                 <div className="flex-col justify-between items-center">
-                  <div>{post.createdAt.toLocaleString()}</div>
+                  <div>{new Date(post.createdAt).toLocaleString()}</div>
                   <div>By {post.author}</div>
                 </div>
                 {/* Posts contents */}
@@ -32,7 +32,7 @@ const Post = async () => {
                     {post.content}
                   </div>
                 </div>
-                <div className="w-full bg-violet-700 rounded-full h-1 px-4 mt-4"></div>
+                {/* <div className="w-full bg-violet-700 rounded-full h-1 px-4 mt-4"></div>
                 <div className="my-2 text-2xl flex justify-between items-center">
                   <div className="flex gap-6">
                     <div className="text-center flex justify-center items-center flex-col">
@@ -47,7 +47,7 @@ const Post = async () => {
                   <div>
                     <BiBookmark />
                   </div>
-                </div>
+                </div> */}
               </div>
             )
           })

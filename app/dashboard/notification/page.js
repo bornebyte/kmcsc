@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdDelete } from "react-icons/md"
+import { IoMdDoneAll } from "react-icons/io"
 
 const Notification = async () => {
   let res = {}
@@ -13,21 +14,24 @@ const Notification = async () => {
   return (
     <div className='bg-gray-900 text-gray-400 min-h-screen'>
       <div className='text-center text-white text-3xl font-bold py-4'>Notifications</div>
-      {
-        notificationsdata.map((i) => {
-          return (
-            <div className='card bg-gray-800 p-4 flex justify-between items-center rounded-lg mt-6 px-4 w-[90vw] mx-auto' key={i._id.toString()}>
-              <div>
-              <div className="date my-2 mb-2 text-base">{i.createdAt.toLocaleString()}</div>
-              <div className="text-xl">{i.msg}</div>
+      <div className='pb-10'>
+        {
+          notificationsdata.map((i) => {
+            return (
+              <div className='card bg-gray-800 p-4 flex justify-between items-center rounded-lg mt-6 px-4 w-[90vw] lg:w-[40vw] mx-auto' key={i._id.toString()}>
+                <div>
+                  <div className="date my-2 mb-2 text-base">{new Date(i.createdAt).toLocaleString()}</div>
+                  <div className="text-xl">{i.msg}</div>
+                </div>
+                <div className='flex justify-between items-center gap-4'>
+                  <IoMdDoneAll className='text-2xl hover:text-violet-500 transition-all duration-250 hover:scale-125' />
+                  <MdDelete className='text-2xl hover:text-red-500 transition-all duration-250 hover:scale-125' />
+                </div>
               </div>
-              <div>
-                <MdDelete className='text-2xl hover:text-red-500 transition-all duration-250 hover:scale-125' />
-              </div>
-            </div>
-          )
-        })
-      }
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

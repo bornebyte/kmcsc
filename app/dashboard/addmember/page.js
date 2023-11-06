@@ -29,7 +29,7 @@ const AddMember = () => {
     return (
         <form className="text-gray-400 bg-gray-900 body-font" action={handleForm}>
             <Toaster />
-            <div className="py-6 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col w-[90vw] mx-auto">
+            <div className="py-6 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col w-[90vw] lg:w-[40vw] mx-auto">
                 <h2 className="text-white text-lg font-medium title-font mb-5 text-center">Add New Members</h2>
                 <div className="relative mb-4">
                     <label htmlFor="full-name" className="leading-7 text-sm text-gray-400">Full Name</label>

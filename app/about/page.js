@@ -12,13 +12,13 @@ const Line = () => {
 const About = () => {
   return (
     <div className='min-h-screen bg-gray-900 text-gray-400'>
-      <div className="w-full mx-auto py-2 px-4">
+      <div className="w-full mx-auto py-2 px-4 lg:w-[80vw]">
         <div className="title text-4xl text-white text-center font-bold my-8">Clubs</div>
         <p className='my-6'>At KMSS, there are array of clubs available for students to join and widen their horizon and experience.
           The clubs are student-managed with myriad activities varying on the specific purpose of each respective club which allow you to pursue your current interests and passions and perhaps even find ones you didn&apos;t know you had. The clubs will help you gain invaluable leadership, social and personal skills as well as life skills connecting you with other students who have similar interests. The clubs give you the opportunity to apply classroom learning to the outside world. They also channelize diverse interests by providing them with an avenue to display their talents.
         </p>
         <Line />
-        <div className="club-details flex-col gap-6">
+        <div className="club-details flex-col gap-6 lg:flex lg:flex-row">
           <div className="left-card ">
             <div className="club">
               <div className="club-title my-4 text-center text-white font-bold text-2xl">The Robits Club</div>
