@@ -1,6 +1,6 @@
 const { NextResponse } = require("next/server");
 import connect from "@/app/lib/mongodb";
-import MemberModel from "@/app/models/Member.model";
+import MemberModel from "@/app/models/User";
 import Notifications from "@/app/models/Notifications";
 const CryptoJS = require("crypto-js");
 

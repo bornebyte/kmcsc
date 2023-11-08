@@ -14,7 +14,7 @@ const Navbar = () => {
         }
     }, [userlogin])
     return (
-        <header className="text-gray-400 bg-gray-900 body-font">
+        <header className="text-gray-400 bg-gray-900 body-font sticky top-0 left-0 right-0">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
                 <Link href={"/"} className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
                     <Image src={"/kmcsc-logo.jpg"} alt='KMCSC LOGO' height={40} width={40} className='rounded-full' />
@@ -25,7 +25,7 @@ const Navbar = () => {
                     <Link href={"/"} className="mr-5 hover:text-white">Home</Link>
                     <Link href={"/posts"} className="mr-5 hover:text-white">Posts</Link>
                     <Link href={"/about"} className="mr-5 hover:text-white">About</Link>
-                    {userlogin ? <Link href={"/dashboard/home"} className="mr-5 hover:text-white">Dashboard</Link> : <Link href={"/auth/login"} className="mr-5 hover:text-white">Login</Link>}
+                    {userlogin ? <Link href={"/dashboard/home"} className="mr-5 hover:text-white">Dashboard</Link> : <Link href={"/login"} className="mr-5 hover:text-white">Login</Link>}
                     {userlogin && <button className="mr-5 hover:text-white" onClick={() => { localStorage.clear(); window.location.reload() }}>Logout</button>}
                 </nav>
             </div>
