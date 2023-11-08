@@ -10,7 +10,7 @@ export default function AuthLayout({ children }) {
                         <Link href={"resetpassword"} className="px-4 py-2 rounded-md hover:bg-opacity-5 hover:bg-white" >Reset password</Link>
                     </div>
                     {/* line */}
-                    <div className="w-full h-1 bg-violet-700 rounded-full mb-2 mx-auto"></div>
+                    <div className="w-full h-1 bg-indigo-500 rounded-full mb-2 mx-auto"></div>
                     <div>
                         {children}
                     </div>

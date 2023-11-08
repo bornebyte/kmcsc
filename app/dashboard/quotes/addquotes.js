@@ -16,7 +16,7 @@ const Addquotescomponent = () => {
         }
     }
     return (
-        <form className="text-gray-400 bg-gray-900 body-font w-[90vw] lg:w-[40vw] mx-auto" action={handleForm}>
+        <form className="text-gray-400 bg-gray-900 body-font w-[90vw] lg:w-[60vw] mx-auto" action={handleForm}>
             <Toaster />
             <div className="py-6 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
                 <h2 className="text-white text-lg font-medium title-font mb-5 text-center">Add New Quotes</h2>

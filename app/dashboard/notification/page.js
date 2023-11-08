@@ -1,31 +1,28 @@
-import React from 'react'
+'use client'
 import { MdDelete } from "react-icons/md"
 import { IoMdDoneAll } from "react-icons/io"
+import { useState, useEffect } from "react"
+import toast, { Toaster } from 'react-hot-toast';
 
-const Notification = async () => {
-  let res = {}
-  let notificationsdata = []
-  try {
-    res = await fetch(`${process.env.HOST_URL}/api/notifications?limit=20`, { cache: 'no-store' });
-    notificationsdata = await res.json()
-  } catch (error) {
-    console.error(error)
-  }
+const Notification = () => {
+  const [notificationsdata, setNotificationsdata] = useState([])
+  useEffect(() => {
+    fetch(`/api/notifications?limit=20`, { cache: 'no-store' }).then(res => {
+      res.json().then(data => setNotificationsdata(data))
+    })
+  }, [])
   return (
     <div className='bg-gray-900 text-gray-400 min-h-screen'>
+      <Toaster />
       <div className='text-center text-white text-3xl font-bold py-4'>Notifications</div>
-      <div className='pb-10'>
+      <div className='pb-1'>
         {
           notificationsdata.map((i) => {
             return (
-              <div className='card bg-gray-800 p-4 flex justify-between items-center rounded-lg mt-6 px-4 w-[90vw] lg:w-[40vw] mx-auto' key={i._id.toString()}>
+              <div className='card bg-gray-800 p-4 flex justify-between items-center rounded-lg mt-6 px-4 w-[90vw] lg:w-[60vw] mx-auto' key={i._id.toString()}>
                 <div>
                   <div className="date my-2 mb-2 text-base">{new Date(i.createdAt).toLocaleString()}</div>
                   <div className="text-xl">{i.msg}</div>
-                </div>
-                <div className='flex justify-between items-center gap-4'>
-                  <IoMdDoneAll className='text-2xl hover:text-violet-500 transition-all duration-250 hover:scale-125' />
-                  <MdDelete className='text-2xl hover:text-red-500 transition-all duration-250 hover:scale-125' />
                 </div>
               </div>
             )

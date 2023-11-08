@@ -6,8 +6,11 @@ import { useEffect, useState } from 'react'
 const Navbar = () => {
     const [userlogin, setUserlogin] = useState(false)
     useEffect(() => {
-        if (localStorage.getItem("useremail") && localStorage.getItem("userpassword")) {
-            setUserlogin(true)
+        try {
+            if (JSON.parse(localStorage.getItem("userdata"))._id) {
+                setUserlogin(true)
+            }
+        } catch (error) {
         }
     }, [userlogin])
     return (
@@ -23,7 +26,7 @@ const Navbar = () => {
                     <Link href={"/posts"} className="mr-5 hover:text-white">Posts</Link>
                     <Link href={"/about"} className="mr-5 hover:text-white">About</Link>
                     {userlogin ? <Link href={"/dashboard/home"} className="mr-5 hover:text-white">Dashboard</Link> : <Link href={"/auth/login"} className="mr-5 hover:text-white">Login</Link>}
-                    {userlogin && <button className="mr-5 hover:text-white" onClick={() => { localStorage.removeItem("useremail"); localStorage.removeItem("userpassword");window.location.reload() }}>Logout</button>}
+                    {userlogin && <button className="mr-5 hover:text-white" onClick={() => { localStorage.clear(); window.location.reload() }}>Logout</button>}
                 </nav>
             </div>
         </header>

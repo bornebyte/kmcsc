@@ -74,7 +74,7 @@ const AddMember = () => {
                         <option value="Member" className="bg-gray-900">Member</option>
                     </select>
                 </div>
-                <button type="submit" className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Post</button>
+                <button type="submit" className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Add</button>
             </div>
         </form>
     )

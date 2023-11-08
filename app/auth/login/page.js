@@ -18,8 +18,7 @@ const LoginComponent = () => {
         let data = await res.json()
         if (data.uid) {
             toast.success("Login Successful")
-            localStorage.setItem("useremail", data.email)
-            localStorage.setItem("userpassword", data.password)
+            localStorage.setItem("userdata",JSON.stringify(data.userdata))
             window.location.reload()
         } else {
             toast.error("Invalid Credentials")
@@ -31,8 +30,8 @@ const LoginComponent = () => {
             <div className="py-6 bg-gray-800 bg-opacity-50 rounded-lg px-8 flex-col mx-auto">
                 <h2 className="text-white text-lg font-medium title-font mb-5 text-center">Login</h2>
                 <div className="relative mb-4">
-                    <label htmlFor="email" className="leading-7 text-sm text-gray-400">Email</label>
-                    <input required type="email" id="email" name="email" className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    <label htmlFor="email" className="leading-7 text-sm text-gray-400">Email or username</label>
+                    <input required type="text" id="email" name="email" className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                 </div>
                 <div className="relative mb-4">
                     <label htmlFor="password" className="leading-7 text-sm text-gray-400">Password</label>

@@ -2,8 +2,23 @@
 import toast, { Toaster } from 'react-hot-toast';
 
 const ResetPasswordComponent = () => {
-    const handleForm = async () => {
-        toast.success("Reset request sent")
+    const handleForm = async (formData) => {
+        let useremail = formData.get("username")
+        let res = await fetch(`/api/auth/resetpasswordrequest`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: useremail
+            }),
+        })
+        let data = await res.json()
+        if (data.uid) {
+            toast.success("Request sent successfully")
+        } else {
+            toast.error("Email doesn't exist")
+        }
     }
     return (
         <form className="w-[90vw] lg:w-[50vw] mx-auto" action={handleForm}>
