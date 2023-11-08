@@ -1,15 +1,31 @@
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
-import { BiBookmark, BiComment } from "react-icons/bi"
+'use client'
+import { useEffect, useState } from "react"
 
-const Post = async () => {
-  let res = {}
-  let posts = []
-  try {
-    res = await fetch(`${process.env.HOST_URL}/api/posts?limit=6`, { cache: 'no-store' });
-    posts = await res.json()
-  } catch (error) {
-    console.error(error)
+const Post = () => {
+  const [posts, setPosts] = useState([])
+  const [page, setPage] = useState(1)
+  const fetchposts = () => {
+    console.log(page)
+    try {
+      fetch(`/api/posts?page=${page}`, { cache: 'no-store' }).then(res => {
+        res.json().then(data => setPosts(prev => [...prev, ...data]))
+      })
+    } catch (error) {
+      console.error(error)
+    }
   }
+  const hadleInfinityScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop > document.documentElement.scrollHeight - 30) {
+      setPage(page + 1)
+    }
+  }
+  useEffect(() => {
+    fetchposts()
+  }, [page])
+  useEffect(() => {
+    window.addEventListener("scroll", hadleInfinityScroll)
+    return () => window.removeEventListener("scroll", hadleInfinityScroll)
+  }, [])
   return (
     <div className="min-h-screen bg-gray-900 text-gray-400">
       <div className="w-full py-1">
@@ -17,9 +33,9 @@ const Post = async () => {
         <h1 className="text-4xl text-white text-center font-bold my-8">Posts</h1>
         {/* Posts Div */}
         {posts &&
-          posts.map((post) => {
+          posts.map((post, i) => {
             return (
-              <div key={post._id.toString()} className="mx-auto w-[90vw] lg:w-[60vw] px-6 py-4 border-blue-400 rounded-lg bg-gray-800 bg-opacity-40 my-12">
+              <div key={i} className="mx-auto w-[90vw] lg:w-[60vw] px-6 py-4 border-blue-400 rounded-lg bg-gray-800 bg-opacity-40 my-12">
                 {/* Informations about posts */}
                 <div className="flex-col justify-between items-center">
                   <div>{new Date(post.createdAt).toLocaleString()}</div>
@@ -32,22 +48,6 @@ const Post = async () => {
                     {post.content}
                   </div>
                 </div>
-                {/* <div className="w-full bg-violet-700 rounded-full h-1 px-4 mt-4"></div>
-                <div className="my-2 text-2xl flex justify-between items-center">
-                  <div className="flex gap-6">
-                    <div className="text-center flex justify-center items-center flex-col">
-                      <AiOutlineHeart className="text-red-500" />
-                      <div className="text-base">0</div>
-                    </div>
-                    <div className="text-center flex justify-center items-center flex-col">
-                      <BiComment />
-                      <div className="text-base">0</div>
-                    </div>
-                  </div>
-                  <div>
-                    <BiBookmark />
-                  </div>
-                </div> */}
               </div>
             )
           })

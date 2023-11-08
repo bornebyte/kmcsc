@@ -5,14 +5,15 @@ import Notifications from "@/app/models/Notifications";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url)
-    let limitval = 10
+    let page = 1
     try {
-        limitval = searchParams.get('limit')
+        page = searchParams.get('page')
     } catch (error) {
-        limitval = 10
+        page = 1
     }
     await connect()
-    let data = await Post.find().sort({ _id: -1 }).limit(limitval)
+    let data = await Post.find().sort({ _id: -1 }).skip(5 * (page - 1)).limit(5)
+    // console.log(await Post.find())
     return NextResponse.json(data)
 }
 
