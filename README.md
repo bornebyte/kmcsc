@@ -1,17 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KMC Students Committee Website
 
-## Getting Started
+This is the official website for the KMC Students Committee of Kathmandu Model College. It was created to help the committee manage posts, member information, and notices for the students.
 
-First, run the development server:
+## ✨ Features
+
+- **Post Management**: Create, update, and delete posts for events and announcements.
+- **Member Management**: A system to manage student committee members.
+- **Notifications**: A section for important notices and updates for students.
+- **Public Interface**: A clean UI for students to view all posts and notices.
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js
+- **Styling**: Tailwind CSS
+- **Database**: MongoDB with Mongoose
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+- Node.js (v18.17.0 or later)
+- npm, yarn, or pnpm
+- MongoDB database (local or cloud-based like MongoDB Atlas)
+
+### Installation
+
+1.  Clone the repo:
+    ```bash
+    git clone https://github.com/your-username/kmcsc.git
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd kmcsc
+    ```
+3.  Install NPM packages:
+    ```bash
+    npm install
+    ```
+4.  Create a `.env.local` file in the root of the project and add your MongoDB connection string:
+    ```
+    MONGODB_URI="your_mongodb_connection_string"
+    ```
+5.  Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
